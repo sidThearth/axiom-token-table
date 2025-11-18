@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Axiom Dark Theme Palette */
+  --background: #050505;
+  --foreground: #ffffff;
+  
+  /* Helper variables for borders/cards if needed */
+  --card-bg: #111111;
+  --border-color: #222222;
+}
+
+html,
+body {
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  /* Ensure the font family matches the layout import */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark Mode Skeleton Shimmer 
+   Updated from light gray (#f3f4f6) to dark gray (#1a1a1a) 
+*/
+.skeleton { 
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%); 
+  background-size: 400% 100%; 
+  animation: shimmer 1.6s linear infinite; 
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Price Flash Animations
+   Adjusted opacity for better visibility on dark backgrounds 
+*/
+.price-up { 
+  transition: background-color 400ms ease; 
+  background-color: rgba(34, 197, 94, 0.2); /* Green-500 with opacity */
+  border-radius: 4px;
+}
+
+.price-down { 
+  transition: background-color 400ms ease; 
+  background-color: rgba(239, 68, 68, 0.2); /* Red-500 with opacity */
+  border-radius: 4px;
+}
