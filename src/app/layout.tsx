@@ -1,23 +1,26 @@
 import './globals.css';
 import React from 'react';
 import { Inter } from 'next/font/google';
-import AppProviders from '@/providers/AppProviders'; // Import the new Client Component
+import { Metadata } from 'next'; // Added import for Metadata
 
-const inter = Inter({ subsets: ['latin'] });
+import { Providers } from "./providers";
 
-export const metadata = {
-  title: 'Axiom Token Table',
-  description: 'Token discovery table replica',
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Axiom Trade Replica",
+  description: "Token discovery table replica",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        {/* Wrap the children with the Client Component that holds the providers */}
-        <AppProviders>
-          {children}
-        </AppProviders>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
