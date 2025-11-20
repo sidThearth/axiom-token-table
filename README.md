@@ -72,8 +72,9 @@ The project includes a comprehensive test suite and verification steps:
 - **Build Integrity**: `npm run build`
 
   snapshots- <img width="1913" height="970" alt="Screenshot 2025-11-20 130717" src="https://github.com/user-attachments/assets/060cc9c3-e246-4019-91c8-535ffa15936e" />
-  
-.<img width="1919" height="975" alt="Screenshot 2025-11-20 130746" src="https://github.com/user-attachments/assets/b1f721b3-ff22-45e2-94da-2bbdfbb1a21f" /><img width="497" height="172" alt="v1_output" src="https://github.com/user-attachments/assets/e569af00-966d-4464-9fc7-5b1dc25da613" /><img width="471" height="171" alt="v2_output" src="https://github.com/user-attachments/assets/b7e36eb9-29b3-463a-8a03-66eb12bea1d5" />
+  <img width="1915" height="873" alt="Screenshot 2025-11-20 131112" src="https://github.com/user-attachments/assets/2e7e4eab-cccc-4d59-90c1-2b514a6d91c6" />
+
+.<img width="1919" height="975" alt="Screenshot 2025-11-20 130746" src="https://github.com/user-attachments/assets/b1f721b3-ff22-45e2-94da-2bbdfbb1a21f" />
 
 
 
