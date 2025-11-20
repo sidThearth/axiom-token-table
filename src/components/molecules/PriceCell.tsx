@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { formatCurrency } from '@/lib/formatters';
 import { cn } from '@/lib/utils';

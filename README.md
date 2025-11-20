@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Axiom Trade - Token Discovery Replica
 
-## Getting Started
+A pixel-perfect replica of the Axiom Trade token discovery interface, built with Next.js 14, TypeScript, and Tailwind CSS. This project demonstrates a high-performance, real-time data table with advanced filtering, sorting, and UI interactions.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Real-time Data Simulation**: Mock WebSocket service simulating live price, volume, and change updates.
+- **Advanced Data Table**:
+  - Custom sorting and filtering logic.
+  - "New Pairs", "Final Stretch", and "Migrated" tabs.
+  - Real-time price flashing (Green/Red) on updates.
+- **Modern UI/UX**:
+  - Dark mode aesthetic matching Axiom Trade.
+  - Custom "Axiom" design system using Tailwind CSS.
+  - Responsive layout with fixed navigation and market bars.
+- **Navigation & Market Status**:
+  - Top header with search, navigation links, and action buttons.
+  - Bottom market bar with global tickers (BTC, ETH, SOL) and connection status.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + `tailwindcss-animate`
+- **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/)
+- **Data Fetching**: [TanStack Query](https://tanstack.com/query/latest)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/) primitives, [Lucide React](https://lucide.dev/) icons.
+
+## 📂 Project Structure
+
+```
+src/
+├── app/                  # Next.js App Router pages and layout
+├── components/
+│   ├── ui/               # Reusable atomic components (Button, Badge, etc.)
+│   ├── molecules/        # Compound components (TokenCell, FilterBar)
+│   └── organisms/        # Complex widgets (TokenTable, Header, MarketBar)
+├── lib/                  # Utilities, store configuration, and types
+├── services/             # Mock services (WebSocket)
+└── hooks/                # Custom React hooks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/sidThearth/axiom-token-table.git
+    cd axiom-token-table
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4.  **Build for production:**
+    ```bash
+    npm run build
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Verification
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project includes a comprehensive test suite and verification steps:
+- **Type Safety**: `tsc --noEmit`
+- **Linting**: `npm run lint`
+- **Build Integrity**: `npm run build`
 
-## Deploy on Vercel
+## 📝 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is for educational and demonstration purposes.
