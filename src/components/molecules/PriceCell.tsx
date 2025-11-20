@@ -1,35 +1,41 @@
-// /src/components/molecules/PriceCell.tsx (COMPLETED)
-'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { formatCurrency } from '@/lib/formatters';
+import { cn } from '@/lib/utils';
 
-export default function PriceCell({ price, prev }: { price: number; prev?: number }) {
-  const [flash, setFlash] = useState<'up'|'down'|'none'>('none');
-  
-  // 核心逻辑: Detect change, apply flash class, and clear it after transition.
+interface PriceCellProps {
+  price: number;
+}
+
+export const PriceCell: React.FC<PriceCellProps> = ({ price }) => {
+  const prevPriceRef = useRef(price);
+  const [flashState, setFlashState] = useState<'none' | 'green' | 'red'>('none');
+
   useEffect(() => {
-    // Only run if the previous price exists (meaning we have history)
-    if (prev === undefined || price === prev) {
-        setFlash('none');
-        return;
+    if (price > prevPriceRef.current) {
+      setFlashState('green');
+    } else if (price < prevPriceRef.current) {
+      setFlashState('red');
     }
 
-    if (price > prev) setFlash('up');
-    else if (price < prev) setFlash('down');
+    prevPriceRef.current = price;
 
-    // Timer matches the CSS transition duration (400ms defined in globals.css)
-    const t = setTimeout(() => {
-        // Clear the flash class after the transition ends
-        setFlash('none');
-    }, 450); // Slightly longer than CSS transition
+    const timer = setTimeout(() => {
+      setFlashState('none');
+    }, 1000); // Match animation duration
 
-    return () => clearTimeout(t);
-  }, [price, prev]);
+    return () => clearTimeout(timer);
+  }, [price]);
 
   return (
-    // Apply the class defined in globals.css: .price-up or .price-down
-    <div className={`text-right text-sm px-2 ${flash === 'up' ? 'price-up' : flash==='down' ? 'price-down' : ''}`}>
-      {/* Use toFixed(6) for crypto prices for precision */}
-      {price.toFixed(6)}
+    <div
+      className={cn(
+        "font-mono font-medium transition-colors duration-300 px-2 py-1 rounded",
+        flashState === 'green' && "animate-flash-green text-axiom-success",
+        flashState === 'red' && "animate-flash-red text-axiom-danger",
+        flashState === 'none' && "text-axiom-text-primary"
+      )}
+    >
+      {formatCurrency(price)}
     </div>
   );
-}
+};
